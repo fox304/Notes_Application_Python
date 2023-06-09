@@ -4,6 +4,7 @@ import print_notes
 import output_specific_note
 import create_note
 import deleted_note
+import edition_note
 from datetime import datetime
 
 
@@ -29,6 +30,8 @@ def my_menu(notebook):
         output_specific_note.print_one_note(notebook)
     if n == 3:
         deleted_note.del_note(notebook)
+    if n == 4:
+        edition_note.edit_note(notebook)
     
     
     
