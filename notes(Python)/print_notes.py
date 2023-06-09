@@ -7,4 +7,3 @@ def print_all(notebook):
         output_specific_note.print_one(notebook,i)
 
 
-
