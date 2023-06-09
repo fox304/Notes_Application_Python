@@ -27,6 +27,8 @@ def my_menu(notebook):
         print_notes.print_all(notebook)
     if n == 2:
         output_specific_note.print_one_note(notebook)
+    if n == 3:
+        deleted_note.del_note(notebook)
     
     
     
