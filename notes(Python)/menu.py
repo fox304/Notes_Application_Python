@@ -5,6 +5,8 @@ import output_specific_note
 import create_note
 import deleted_note
 from datetime import datetime
+
+
 time = datetime.today().strftime("%Y-%m-%d %H часов %M минут %S секунд")
 
 def start_notebook():
@@ -19,8 +21,14 @@ def start_notebook():
     return notebook
 
 def my_menu(notebook):
+    n = int(input('введите номер: '))
+
+    if n == 1:
+        print_notes.print_all(notebook)
+    if n == 2:
+        output_specific_note.print_one_note(notebook)
     
-    list_moduls = [print_notes.print_all(notebook)]
+    
     
 
 
