@@ -11,10 +11,13 @@ from datetime import datetime
 time = datetime.today().strftime("%Y-%m-%d %H часов %M минут %S секунд")
 
 def start_notebook():
-    notebook = {'title':{'one':{1:[time,'первая запись'],2:[time,'вторая запись'],3:[time,'третья запись']},
-                        'two':{4:[time,'первая запись'],5:[time,'вторая запись'],6:[time,'третья запись'],7:[time,'четвёртая запись']}
-                        } 
+    notebook = {1:[time,'"one"','первая запись'],2:[time,'"two"','вторая запись'],
+                3:[time,'"three"','третья запись'],4:[time,'"foure"','444444444444'],
+                5:[time,'"five"','55555555555'],6:[time,'"six"','666666666'],
+                7:[time,'"seven"','7777777777777']
                }
+                        
+               
 
     with open("file_1.json",'w') as file1:
         json.dump(notebook,file1,indent = 3)
@@ -32,6 +35,8 @@ def my_menu(notebook):
         deleted_note.del_note(notebook)
     if n == 4:
         edition_note.edit_note(notebook)
+    if n == 5:
+        create_note.making_note(notebook)
     
     
     
