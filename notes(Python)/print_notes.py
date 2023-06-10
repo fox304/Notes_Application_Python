@@ -5,5 +5,3 @@ def print_all(notebook):
     print('-------------------')
     for i in notebook:
         output_specific_note.print_one(notebook,i)
-
-

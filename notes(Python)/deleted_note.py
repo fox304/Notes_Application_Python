@@ -1,12 +1,7 @@
-import print_notes
+import errors
+
 def del_note(notebook):
-    num = int(input("введите номер записи для удаления: "))
-
+    num = input("введите номер записи для удаления: ")
+    num = errors.err(notebook,num)
     notebook.pop(num)
-
     print(f"Запись номер {num} удалена.")
-
-    
-    print_notes.print_all(notebook)
-
-
