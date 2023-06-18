@@ -1,28 +1,26 @@
 package toyStoreJava;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Start {
-    private List<Toy> listAllToys = new ArrayList<>();
+    
     private Store store = new Store();
+    private Menu menu = new Menu(store);
 
     public Store getStore() {
         return store;
     }
-    public List<Toy> getListAllToys() {
-        return listAllToys;
-    }
-
+    
     public void startProgramm() {
         store.originStore();
-        
-        
+        boolean flag = true;
+        while (flag) {
+            
+            int a = menu.printMenu();  // выясняем номер команды
+            flag = menu.choiceCommand(a); // выполняем команду
+            
 
+        }
+        
+    
     }
-    
-    
-    
-    
-    
+
 }

@@ -1,6 +1,6 @@
 package toyStoreJava;
 
-public class Toy {
+public class Toy implements Comparable<Toy>{
     int id,number,frequencyOfFallingOut;
     String nameToy;
 
@@ -13,6 +13,10 @@ public class Toy {
     @Override
     public String toString() {
         
-        return String.format("игрушка '%s' ",nameToy);
+        return String.format("игрушка: '%s' , id: %s, fr:%s ",nameToy,id,frequencyOfFallingOut);
+    }
+    @Override
+    public int compareTo(Toy o) {
+        return Integer.compare(this.frequencyOfFallingOut, o.frequencyOfFallingOut);
     }
 }
