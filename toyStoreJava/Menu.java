@@ -1,6 +1,5 @@
 package toyStoreJava;
 
-import java.util.Scanner;
 
 public class Menu {
 
@@ -11,7 +10,7 @@ public class Menu {
         this.store = store;
     }
 
-    public void printMenu() {
+    public int printMenu() {
         System.out.println("-------------------------------");
         System.out.println("1) Добавление новой игрушки и измениние частоты выпадения ");
         System.out.println("2) Метод выбора призовой игрушки");
@@ -19,11 +18,12 @@ public class Menu {
         System.out.println("----------------------------------");
         System.out.println("Сделайте свой выбор");
         int num = Errors.err();
-        choiceCommand(num);
+        return num;
 
     }
 
-    public void choiceCommand(int num) {
+    public boolean choiceCommand(int num) {
+        boolean flag = true;
 
         switch (num) {
             case 1:
@@ -35,7 +35,13 @@ public class Menu {
             case 3:
                 store.getPrice();
                 break;
+            case 4:
+                System.out.println("Работа программы закончена");
+                flag = false;
+
         }
+        return flag;
+        
     }
 
 }

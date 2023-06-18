@@ -20,10 +20,6 @@ public class Store {
         return prizeToys;
     }
 
-    public void addNewToy(Toy toy) {
-        listAllToys.add(toy);
-        
-    }
 
     /**
      * создание первоначальной комплектации магазина игрушек
@@ -36,7 +32,7 @@ public class Store {
         Toy toy5 = new Toy(5, 8, 20, "building kit");
 
         Toy[] arr = new Toy[] { toy1, toy2, toy3, toy4, toy5 };
-        // ArrayList<Toy> toysList = new ArrayList<>(Arrays.asList(arr));
+    
 
         listAllToys = new ArrayList<>(Arrays.asList(arr));
         primaryIdToy = arr.length;  // первоначальная длина списка игрушек
@@ -55,9 +51,16 @@ public class Store {
         Toy toy10 = new Toy(++primaryIdToy, 5, 10 * (new Random().nextInt(8)+1), "car");
         
         Toy[] listToys = new Toy[] { toy6, toy7, toy8, toy9, toy10 };
-        int x = new Random().nextInt(5);                         // случайный выбор игрушки
-        listAllToys.add(listToys[x]);
-        prizeToys.add(listToys[0]);
+        
+        
+        System.out.println(listAllToys);
+
+        for (Toy toy : listToys) {
+            listAllToys.add(toy);
+        }
+
+        System.out.println("вы добавили пять видов игрушек");
+        System.out.println(listAllToys);
         
 
     }
@@ -81,9 +84,11 @@ public class Store {
     }
 
     public void getPrice() {
-        
-    }
+        System.out.println(prizeToys);
+        System.out.println(prizeToys.poll());
+        System.out.println(prizeToys);
 
+    }
     
     
 }

@@ -11,7 +11,15 @@ public class Start {
     
     public void startProgramm() {
         store.originStore();
-        menu.printMenu();
+        boolean flag = true;
+        while (flag) {
+            
+            int a = menu.printMenu();  // выясняем номер команды
+            flag = menu.choiceCommand(a); // выполняем команду
+            
+
+        }
+        
     
     }
 
