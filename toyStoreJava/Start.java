@@ -10,17 +10,12 @@ public class Start {
     }
     
     public void startProgramm() {
+        menu.printMenu();
         store.originStore();
-        boolean flag = true;
-        while (flag) {
-            
-            int a = menu.printMenu();  // выясняем номер команды
-            flag = menu.choiceCommand(a); // выполняем команду
-            
-
+        for (int i = 1; i < 4; i++) {
+            menu.choiceCommand(i); // выполняем команды
         }
         
-    
     }
 
 }
