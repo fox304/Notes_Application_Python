@@ -1,8 +1,30 @@
 package toyStoreJava;
 
 public class Toy implements Comparable<Toy>{
-    int id,number,frequencyOfFallingOut;
-    String nameToy;
+    private int id,number,frequencyOfFallingOut;
+    private String nameToy;
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+    
+    public int getFrequencyOfFallingOut() {
+        return frequencyOfFallingOut;
+    }
+
+    public String getNameToy() {
+        return nameToy;
+    }
+
+
 
     public Toy(int id, int number, int frequencyOfFallingOut, String nameToy) {
         this.id = id;
