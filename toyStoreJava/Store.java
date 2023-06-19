@@ -1,5 +1,7 @@
 package toyStoreJava;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,9 +10,9 @@ import java.util.Queue;
 import java.util.Random;
 
 public class Store {
-    private Queue <Toy> prizeToys = new PriorityQueue<>();
+    private Queue <Toy> prizeToys = new PriorityQueue<>(); 
     private int primaryLengthToy;
-    private List<Toy> listAllToys = new ArrayList<>();
+    private List<Toy> listAllToys,outputPrizeToys = new ArrayList<>();
 
     public List<Toy> getAllToys() {
         return listAllToys;
@@ -19,7 +21,6 @@ public class Store {
     public Queue <Toy> getPrizeToys() {
         return prizeToys;
     }
-
 
     /**
      * создание первоначальной комплектации магазина игрушек
@@ -34,7 +35,7 @@ public class Store {
         Toy[] arr = new Toy[] { toy1, toy2, toy3, toy4, toy5 };
     
         System.out.printf("1) Добавляем 5 видов игрушек в первоначальный список! Это %s, %s, %s, %s, %s !\n",
-                                    toy1.nameToy,toy2.nameToy,toy3.nameToy,toy4.nameToy,toy5.nameToy);
+                                    toy1.getNameToy(),toy2.getNameToy(),toy3.getNameToy(),toy4.getNameToy(),toy5.getNameToy());
         listAllToys = new ArrayList<>(Arrays.asList(arr));
         primaryLengthToy = arr.length;  // первоначальная длина списка игрушек
     }
@@ -56,11 +57,11 @@ public class Store {
 
         for (Toy toy : listToys) { // добавляем 5 видов игрушек в основной массив
             listAllToys.add(toy);
+        
         }
-
         
         System.out.printf("   Добавляем еще пять видов игрушек!Это %s, %s, %s, %s, %s !\n",
-                            toy6.nameToy,toy7.nameToy,toy8.nameToy,toy9.nameToy,toy10.nameToy);
+                            toy6.getNameToy(),toy7.getNameToy(),toy8.getNameToy(),toy9.getNameToy(),toy10.getNameToy());
         
     }
 
@@ -92,22 +93,38 @@ public class Store {
         System.out.println("3) Теперь разыграем игрушки в соответствии с их частотой выпадения");
         System.out.println("-----------------------------------------------------------------");
         while (!prizeToys.isEmpty()) {
-            
-            
-            Toy toy = prizeToys.peek();
-            
-            System.out.printf("  Выпала: \n  ############################ \n%s\n  ############################ ", toy);
-            if (toy.number > 1) {
 
-                toy.number--; //                                             удаляем одну игрушку с конкретной категории
-                System.out.printf("   Осталось  %s призовых игрушек %s !\n", toy.number, toy.nameToy);
+            Toy toy = prizeToys.peek();
+            System.out.printf("  Выпала: \n  ############################ \n%s\n  ############################ ", toy);
+
+            outputPrizeToys.add(toy);   // упаковываем все кол-во призовых игрушек для вывода в файл
+
+            if (toy.getNumber() > 1) {
+
+                toy.setNumber(toy.getNumber()-1); //                  удаляем одну игрушку с конкретной категории
+                System.out.printf("   Осталось  %s призовых игрушек %s !\n", toy.getNumber(), toy.getNameToy());
             } else {
 
-                prizeToys.poll(); //                                         удаляем всю категорию 
-                System.out.printf("   Больше не осталось  призовых игрушек %s !\n", toy.nameToy);
+                prizeToys.poll(); //                    удаляем всю категорию 
+                System.out.printf("   Больше не осталось  призовых игрушек %s !\n", toy.getNameToy());
             }
         }
-
-    } 
+    }
+    
+    /**
+     * запись в файл
+     * @param toy - выпадающая игрушка
+     */
+    public void writeToFile() {
+        try (FileWriter wr = new FileWriter("prizeToys.txt", false)) {
+            for (Toy toy : outputPrizeToys) {
+                wr.write(toy.toString());
+                wr.append('\n');
+            }
+            
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

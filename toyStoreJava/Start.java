@@ -12,9 +12,12 @@ public class Start {
     public void startProgramm() {
         menu.printMenu();
         store.originStore();
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 5; i++) {
             menu.choiceCommand(i); // выполняем команды
         }
+        System.out.println();
+        System.out.println("Выпадение призовых игрушек записано в файл");
+        System.out.println();
         
     }
 

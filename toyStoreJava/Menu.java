@@ -5,7 +5,6 @@ public class Menu {
 
     Store store;
 
-
     public Menu(Store store) {
         this.store = store;
     }
@@ -16,6 +15,7 @@ public class Menu {
         System.out.println("1) Добавление новой игрушки и измениние частоты выпадения ");
         System.out.println("2) Метод выбора призовой игрушки");
         System.out.println("3) Получение призовой игрушки");
+        System.out.println("4) Запись призовых игрушек в файл prizeToys.txt");
         System.out.println("----------------------------------");
     }
 
@@ -30,6 +30,9 @@ public class Menu {
                 break;
             case 3:
                 store.getPrice();
+                break;
+            case 4:
+                store.writeToFile();
                 break;
         }
         
