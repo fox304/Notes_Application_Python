@@ -13,10 +13,11 @@ public class Toy implements Comparable<Toy>{
     @Override
     public String toString() {
         
-        return String.format("игрушка: '%s' , id: %s, fr:%s ",nameToy,id,frequencyOfFallingOut);
+        return String.format("\t игрушка: %s,\n\t id: %s,\n\t частота выпадения: %s,\n\t кол-во игрушек = %s.\n",
+                                nameToy,id,frequencyOfFallingOut,number);
     }
     @Override
-    public int compareTo(Toy o) {
-        return Integer.compare(this.frequencyOfFallingOut, o.frequencyOfFallingOut);
+    public int compareTo(Toy o) {                                            // сравнение по частоте выпадения
+        return Integer.compare(o.frequencyOfFallingOut, this.frequencyOfFallingOut);  
     }
 }

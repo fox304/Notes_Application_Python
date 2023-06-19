@@ -10,20 +10,16 @@ public class Menu {
         this.store = store;
     }
 
-    public int printMenu() {
+    public void printMenu() {
+        System.out.println("как будет выполняться программа: ");
         System.out.println("-------------------------------");
         System.out.println("1) Добавление новой игрушки и измениние частоты выпадения ");
         System.out.println("2) Метод выбора призовой игрушки");
         System.out.println("3) Получение призовой игрушки");
         System.out.println("----------------------------------");
-        System.out.println("Сделайте свой выбор");
-        int num = Errors.err();
-        return num;
-
     }
 
-    public boolean choiceCommand(int num) {
-        boolean flag = true;
+    public void choiceCommand(int num) {
 
         switch (num) {
             case 1:
@@ -35,12 +31,7 @@ public class Menu {
             case 3:
                 store.getPrice();
                 break;
-            case 4:
-                System.out.println("Работа программы закончена");
-                flag = false;
-
         }
-        return flag;
         
     }
 
